@@ -1,0 +1,18 @@
+<!-- directive -->
+<!-- ngFor -->
+<!-- ngIf -->
+
+<!--  Kategori ismi 3 haneden kısa ise yazılmasın! -->
+<ul>
+  <ng-template ngFor let-item [ngForOf]="categories">
+    <li *ngIf="item.length > 3">{{ item }}</li>
+  </ng-template>
+</ul>
+
+<ng-container *ngIf="language == 'tr'; else enMessage">
+  <div>Merhaba</div>
+</ng-container>
+
+<ng-template #enMessage>
+  <div>Hello</div>
+</ng-template>
