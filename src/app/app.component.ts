@@ -10,7 +10,7 @@ export class AppComponent {
 
   sumOfNumbers(a: number, b: number) {
     let result = a + b;
-    console.log(result);
+    // console.log(result);
     return result;
   }
 
