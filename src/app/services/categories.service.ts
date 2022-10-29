@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
-})
+}) // Attribute
 export class CategoriesService {
   controllerUrl = `${environment.apiUrl}/categories`;
   // private httpClient: HttpClient;

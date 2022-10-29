@@ -1,14 +1,6 @@
 <!-- directive -->
 <!-- ngFor -->
 <!-- ngIf -->
-
-<!--  Kategori ismi 3 haneden kısa ise yazılmasın! -->
-<ul *ngIf="categories">
-  <ng-template ngFor let-item [ngForOf]="categories">
-    <li *ngIf="item.name.length > 3">{{ item.name }}</li>
-  </ng-template>
-</ul>
-
 <ng-container *ngIf="language == 'tr'; else enMessage">
   <div>Merhaba</div>
 </ng-container>
@@ -16,3 +8,30 @@
 <ng-template #enMessage>
   <div>Hello</div>
 </ng-template>
+
+<!--  Kategori ismi 3 haneden kısa ise yazılmasın! -->
+<ul *ngIf="categories">
+  <ng-template ngFor let-item [ngForOf]="categories">
+    <li *ngIf="item.name.length > 3">{{ item.id }} {{ item.name }}</li>
+  </ng-template>
+</ul>
+
+<!-- Reactive Form -->
+<h1>Form - Add</h1>
+<form [formGroup]="categoryAddForm" (submit)="add()">
+  <input formControlName="name" type="text" placeholder="Enter name" />
+  <input
+    formControlName="description"
+    type="text"
+    placeholder="Enter description"
+  />
+  <button type="submit">Add</button>
+</form>
+
+<!-- ngModel Form -->
+<h1>Form - Delete</h1>
+Silecek olan id: {{ categoryIdToDelete }}
+<div>
+  <input type="text" placeholder="id" [(ngModel)]="categoryIdToDelete" />
+  <button (click)="delete()">Sil</button>
+</div>
