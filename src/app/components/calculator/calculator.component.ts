@@ -10,6 +10,6 @@ export class CalculatorComponent implements OnInit {
 
   // component initialize edildiğine çalışır..
   ngOnInit(): void {
-    console.log('xxx');
+    // console.log('xxx');
   }
 }
