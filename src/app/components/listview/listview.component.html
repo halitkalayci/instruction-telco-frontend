@@ -17,8 +17,9 @@
 </ul>
 
 <!-- Reactive Form -->
-<h1>Form - Add</h1>
+<h2>Form - Add</h2>
 <form [formGroup]="categoryAddForm" (submit)="add()">
+  <p>{{ error }}</p>
   <input formControlName="name" type="text" placeholder="Enter name" />
   <input
     formControlName="description"
