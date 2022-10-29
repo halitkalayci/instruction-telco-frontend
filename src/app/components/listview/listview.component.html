@@ -3,9 +3,9 @@
 <!-- ngIf -->
 
 <!--  Kategori ismi 3 haneden kısa ise yazılmasın! -->
-<ul>
+<ul *ngIf="categories">
   <ng-template ngFor let-item [ngForOf]="categories">
-    <li *ngIf="item.length > 3">{{ item }}</li>
+    <li *ngIf="item.name.length > 3">{{ item.name }}</li>
   </ng-template>
 </ul>
 

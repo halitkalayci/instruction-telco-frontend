@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CategoriesService } from './../../services/categories.service';
+import { Category } from 'src/app/models/category';
 
 @Component({
   selector: 'app-listview',
@@ -8,7 +9,9 @@ import { CategoriesService } from './../../services/categories.service';
   styleUrls: ['./listview.component.css'],
 })
 export class ListviewComponent implements OnInit {
-  categories: string[] = [];
+  // ?: null olabilir demek.
+  // !: null olmayacak, bu property'i kullanmadan önce atama işlemini gerçekleştiriceğiz söz vermiş oluyoruz.
+  categories!: Category[];
   language: string = 'en';
 
   constructor(private categoriesService: CategoriesService) {}
@@ -20,10 +23,7 @@ export class ListviewComponent implements OnInit {
   getCategories() {
     // Object tipi henüz belli olmayan referans tip diyebiliriz. Referans tiplerin en temel sınıfı diyebiliriz.
     this.categoriesService.getCategories().subscribe((response) => {
-      console.log(
-        '🚀 ~ file: listview.component.ts ~ line 22 ~ ListviewComponent ~ this.categoriesService.getCategories ~ response',
-        response[2]['categoryName']
-      );
+      this.categories = response;
     });
   }
 }
