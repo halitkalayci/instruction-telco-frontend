@@ -7,11 +7,13 @@ import { LoadingService } from './services/loading.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  title = 'telco-frontend12';
+  isLoading: boolean = false;
+
   constructor(private loadingService: LoadingService) {}
   ngOnInit(): void {
     this.subscribeToLoading();
   }
-  title = 'telco-frontend12';
 
   sumOfNumbers(a: number, b: number) {
     let result = a + b;
@@ -25,7 +27,7 @@ export class AppComponent implements OnInit {
 
   subscribeToLoading() {
     this.loadingService.isLoadingSubject.subscribe((isLoading) => {
-      console.log(`Servisten dönen loading sonucu ${isLoading}`);
+      this.isLoading = isLoading;
     });
   }
 
