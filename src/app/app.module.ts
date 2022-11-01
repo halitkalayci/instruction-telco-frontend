@@ -8,9 +8,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListviewComponent } from './components/listview/listview.component';
 import { NgModule } from '@angular/core';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { CreateFakeArrayPipe } from './pipes/create-fake-array.pipe';
+import { SplitPipe } from './pipes/split.pipe';
 
 @NgModule({
-  declarations: [AppComponent, CalculatorComponent, ListviewComponent],
+  declarations: [AppComponent, CalculatorComponent, ListviewComponent, CreateFakeArrayPipe, SplitPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

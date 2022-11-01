@@ -9,6 +9,7 @@ import { LoadingService } from './services/loading.service';
 export class AppComponent implements OnInit {
   title = 'telco-frontend12';
   isLoading: boolean = false;
+  today: Date = new Date();
 
   constructor(private loadingService: LoadingService) {}
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class AppComponent implements OnInit {
   subscribeToLoading() {
     this.loadingService.isLoadingSubject.subscribe((isLoading) => {
       this.isLoading = isLoading;
+      console.log(`Is Loading değeri: ${isLoading}`);
     });
   }
 

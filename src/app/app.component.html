@@ -1,4 +1,4 @@
-<h3>Merhaba Angular</h3>
+<h3>{{ "Merhaba Angular" }}</h3>
 
 <div class="spinner-container" *ngIf="isLoading">
   <div class="overlay show"></div>
@@ -8,8 +8,11 @@
   </div>
 </div>
 
-<button (click)="startLoading()">Start Loading</button>
-<button (click)="stopLoading()">Stop Loading</button>
+<!-- 1-10 arası sayıları listeye yazdır.. -->
+<ul>
+  <li *ngFor="let i of 10 | createFakeArray">{{ i }}</li>
+</ul>
+
 <!-- <h3>{{ title }}</h3>
 <h3>{{ sumOfNumbers(6, 5) }}</h3>
 <button (click)="btnClick()">Tıkla</button>

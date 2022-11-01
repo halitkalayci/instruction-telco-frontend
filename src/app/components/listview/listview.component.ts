@@ -52,6 +52,11 @@ export class ListviewComponent implements OnInit {
       // Observer Design Pattern
       this.categories = response;
     });
+
+    this.categoriesService.getCategories().subscribe((response) => {
+      // Observer Design Pattern
+      this.categories = response;
+    });
   }
 
   // changecategoryIdToDelete(event: any) {
