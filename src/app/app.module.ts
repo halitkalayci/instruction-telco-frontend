@@ -10,9 +10,11 @@ import { NgModule } from '@angular/core';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { CreateFakeArrayPipe } from './pipes/create-fake-array.pipe';
 import { SplitPipe } from './pipes/split.pipe';
+import { LoginComponent } from './pages/login/login.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 
 @NgModule({
-  declarations: [AppComponent, CalculatorComponent, ListviewComponent, CreateFakeArrayPipe, SplitPipe],
+  declarations: [AppComponent, CalculatorComponent, ListviewComponent, CreateFakeArrayPipe, SplitPipe, LoginComponent, HomepageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

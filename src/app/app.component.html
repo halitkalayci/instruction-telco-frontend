@@ -10,7 +10,9 @@
 
 <!-- 1-10 arası sayıları listeye yazdır.. -->
 <ul>
-  <li *ngFor="let i of 10 | createFakeArray">{{ i }}</li>
+  <li *ngFor="let i of 'halit,anıl,burak,burak,büşranur,doğacan' | split: ','">
+    {{ i }}
+  </li>
 </ul>
 
 <!-- <h3>{{ title }}</h3>
@@ -18,3 +20,4 @@
 <button (click)="btnClick()">Tıkla</button>
 <my-calculator></my-calculator> -->
 <app-listview></app-listview>
+<router-outlet> </router-outlet>

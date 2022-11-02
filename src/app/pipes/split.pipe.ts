@@ -8,6 +8,6 @@ export class SplitPipe implements PipeTransform {
   // "halit,anıl,burak,burak,büşranur,doğacan"
   // ["halit","anıl","burak","burak","büşranur"]
   transform(value: string, operator: string): string[] {
-    return [];
+    return value.split(operator);
   }
 }
