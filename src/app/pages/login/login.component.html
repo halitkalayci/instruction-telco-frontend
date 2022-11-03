@@ -1,5 +1,36 @@
-<p>login works!</p>
-<!-- HREF YASAK! -->
-<a href="/homepage" class="btn btn-success">Login with href</a>
-<!--  -->
-<a routerLink="/homepage" class="btn btn-success">Login with router</a>
+<div class="container my-5">
+  <main class="form-signin w-100 m-auto">
+    <form [formGroup]="loginForm">
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder="username"
+          formControlName="userName"
+        />
+        <label for="floatingInput">Username</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <button
+        class="w-100 btn btn-lg btn-primary"
+        type="button"
+        (click)="login()"
+      >
+        Sign in
+      </button>
+    </form>
+  </main>
+</div>
