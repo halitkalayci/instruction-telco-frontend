@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value).subscribe({
       next: (response) => {
         //* next: event sonucunda, ara katmanda değeri işlemek istiyorsak, kullanılan event metodudur.
-        this.localStorage.set('token', response.access_token);
+        this.authService.saveToken(response); //= token'ı localStorage'a kaydettik ve store'a da kaydettik.
       },
       error: (errorResponse) => {
         //* error: bir hata olduğunda yakaladığımız event metodudur.
