@@ -21,6 +21,8 @@ export class AuthService {
   //* - Subject: component.ts arası kullanılır.
   //* - BehaviorSubject: Subject'ın bir türüdür. Subject'ın ilk değerini alır.
   onLogin = new BehaviorSubject<string>('Hoşgeldiniz!');
+  //todo: move state container with ngrx
+  tokenUserModel: TokenUserModel | null = null;
 
   constructor(
     private httpClient: HttpClient,
