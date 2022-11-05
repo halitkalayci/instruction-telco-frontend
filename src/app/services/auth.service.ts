@@ -1,18 +1,21 @@
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { LoginDto } from '../models/loginDto';
-import { ResponseModel } from '../models/responseModel';
-import { LoginResponseModel } from '../models/loginResponseModel';
-import { LocalStorageService } from './local-storage.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { LocalStorageService } from './local-storage.service';
+import { LoginDto } from '../models/loginDto';
+import { LoginResponseModel } from '../models/loginResponseModel';
+import { ResponseModel } from '../models/responseModel';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private controllerUrl = `${environment.apiUrl}/auth`;
+  // private, protected, public(default)
+  onLogin = new Subject<string>();
 
   constructor(
     private httpClient: HttpClient,
@@ -41,5 +44,11 @@ export class AuthService {
 
   get jwtToken(): string | null {
     return this.localStorage.get('token');
+  }
+
+  emitOnLoginEvent(eventValue: string) {
+    this.onLogin.next(eventValue);
+    // this.onLogin.error(new Error("Bir hata oluştu"));
+    this.onLogin.complete();
   }
 }

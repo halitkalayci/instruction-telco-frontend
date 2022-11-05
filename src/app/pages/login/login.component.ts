@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   templateUrl: './login.component.html',
@@ -34,14 +35,23 @@ export class LoginComponent implements OnInit {
       this.toastr.error('Lütfen tüm alanları kontrol ediniz..');
       return;
     }
-    this.authService.login(this.loginForm.value).subscribe(
-      (response) => {
+
+    this.authService.login(this.loginForm.value).subscribe({
+      next: (response) => {
+        //* next: event sonucunda, ara katmanda değeri işlemek istiyorsak, kullanılan event metodudur.
         this.localStorage.set('token', response.access_token);
-        this.router.navigateByUrl('/homepage');
       },
-      (errorResponse) => {
+      error: (errorResponse) => {
+        //* error: bir hata olduğunda yakaladığımız event metodudur.
         this.toastr.error(errorResponse.error.message);
-      }
-    );
+      },
+      complete: () => {
+        //* next'ten sonra son kısımda çalışan event metodudur.
+        this.router.navigateByUrl('/homepage');
+        this.authService.emitOnLoginEvent(
+          `Hoşgeldiniz, ${this.loginForm.value.userName}`
+        );
+      },
+    });
   }
 }

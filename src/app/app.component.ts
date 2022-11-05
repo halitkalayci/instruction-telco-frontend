@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from './services/auth.service';
 import { LoadingService } from './services/loading.service';
 
 @Component({
@@ -13,9 +14,14 @@ export class AppComponent implements OnInit {
   today: Date = new Date();
   overlayTitleText: string = 'Hoşgeldiniz...';
 
-  constructor(private loadingService: LoadingService) {}
+  constructor(
+    private loadingService: LoadingService,
+    private authService: AuthService
+  ) {}
+
   ngOnInit(): void {
     this.subscribeToLoading();
+    this.handleOnLogin();
   }
 
   sumOfNumbers(a: number, b: number) {
@@ -43,9 +49,29 @@ export class AppComponent implements OnInit {
   }
 
   handleOnLogout() {
+    console.log(
+      '🚀 ~ file: app.component.ts ~ line 53 ~ AppComponent ~ handleOnLogout ~ overlayTitleText',
+      this.overlayTitleText
+    );
     this.overlayTitleText = 'Hoşçakal, tekrar bekleriz...';
   }
   handleOnLogoutWithValue(eventValue: string) {
+    console.log(
+      '🚀 ~ file: app.component.ts ~ line 53 ~ AppComponent ~ handleOnLogout ~ overlayTitleText',
+      this.overlayTitleText
+    );
     this.overlayTitleText = eventValue;
+  }
+  handleOnLogin(): void {
+    //* onLogin event'ine (subject) abone olduk, dolayısıyla her tetiklendiğinde ilgili event fonksiyonu çalışır.
+    this.authService.onLogin.subscribe({
+      next: (eventValue) => {
+        console.log(
+          '🚀 ~ file: app.component.ts ~ line 61 ~ AppComponent ~ handleOnLogin ~ eventValue',
+          eventValue
+        );
+        this.overlayTitleText = eventValue;
+      },
+    });
   }
 }
