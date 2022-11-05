@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         this.toastr.error(errorResponse.error.message);
       },
       complete: () => {
-        //* next'ten sonra son kısımda çalışan event metodudur.
+        //* next'ten sonra son kısımda çalışan event metodudur. Event'in artık comlete olduğu gösteriyor.
         this.router.navigateByUrl('/homepage');
         this.authService.emitOnLoginEvent(
           `Hoşgeldiniz, ${this.loginForm.value.userName}`

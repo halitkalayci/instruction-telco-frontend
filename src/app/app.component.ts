@@ -56,20 +56,12 @@ export class AppComponent implements OnInit {
     this.overlayTitleText = 'Hoşçakal, tekrar bekleriz...';
   }
   handleOnLogoutWithValue(eventValue: string) {
-    console.log(
-      '🚀 ~ file: app.component.ts ~ line 53 ~ AppComponent ~ handleOnLogout ~ overlayTitleText',
-      this.overlayTitleText
-    );
     this.overlayTitleText = eventValue;
   }
   handleOnLogin(): void {
     //* onLogin event'ine (subject) abone olduk, dolayısıyla her tetiklendiğinde ilgili event fonksiyonu çalışır.
     this.authService.onLogin.subscribe({
       next: (eventValue) => {
-        console.log(
-          '🚀 ~ file: app.component.ts ~ line 61 ~ AppComponent ~ handleOnLogin ~ eventValue',
-          eventValue
-        );
         this.overlayTitleText = eventValue;
       },
     });

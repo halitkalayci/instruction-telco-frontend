@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
   handleOnLogin(): void {
     //* onLogin event'ine (subject) abone olduk, dolayısıyla her tetiklendiğinde ilgili event fonksiyonu çalışır.
     this.authService.onLogin.subscribe({
-      complete: () => {
+      next: () => {
         this.isLogin = this.authService.isAuthenticated;
       },
     });

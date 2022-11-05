@@ -49,6 +49,8 @@ export class AuthService {
   emitOnLoginEvent(eventValue: string) {
     this.onLogin.next(eventValue);
     // this.onLogin.error(new Error("Bir hata oluştu"));
-    this.onLogin.complete();
+    // this.onLogin.complete(); // Subject artık complete oldu.
+    // this.onLogin = new Subject<string>(); // Subject'i yeniden oluşturduk., Yeni bir referans aldık.
+    // //* Fakat subscribe olmuş olanlar, bu event'i yakalayamayacaklar. Çünkü önceki referansa subscribe oldular.
   }
 }
