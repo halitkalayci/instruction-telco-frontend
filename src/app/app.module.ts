@@ -18,6 +18,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FilterServicePipe } from './pipes/filter-service.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { OverlayTitleComponent } from './components/overlay-title/overlay-title.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HomepageComponent,
     FilterServicePipe,
     NavbarComponent,
+    OverlayTitleComponent,
   ],
   imports: [
     BrowserModule,

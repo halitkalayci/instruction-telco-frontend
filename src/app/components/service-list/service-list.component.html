@@ -1,5 +1,6 @@
 <input [(ngModel)]="searchText" type="text" />
-<ul>
+<!-- services !== null -->
+<ul *ngIf="services">
   <li *ngFor="let item of services | filterService: searchText">
     {{ item.name }}
   </li>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { LoadingService } from './services/loading.service';
 
 @Component({
@@ -10,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'telco-frontend12';
   isLoading: boolean = false;
   today: Date = new Date();
+  overlayTitleText: string = 'Hoşgeldiniz...';
 
   constructor(private loadingService: LoadingService) {}
   ngOnInit(): void {
@@ -38,5 +40,12 @@ export class AppComponent implements OnInit {
   }
   stopLoading() {
     this.loadingService.stopLoading();
+  }
+
+  handleOnLogout() {
+    this.overlayTitleText = 'Hoşçakal, tekrar bekleriz...';
+  }
+  handleOnLogoutWithValue(eventValue: string) {
+    this.overlayTitleText = eventValue;
   }
 }

@@ -6,8 +6,13 @@
   </div>
 </div>
 
-<app-navbar></app-navbar>
+<app-navbar (onLogoutWithValue)="handleOnLogoutWithValue($event)"></app-navbar>
 <!-- logout olduğunu yakalasın -->
 <!-- Hoşçakal -->
+<div class="container">
+  <!-- text="Hoşgeldiniz" statik string tipinde veriler verdiğimizde kullanabiliriz. -->
+  <!-- [text]="overlayTitleText" hem dinamik değişkenler için, hem de string ve diğer tipler için kullanabiliriz. -->
+  <app-overlay-title [text]="overlayTitleText"></app-overlay-title>
+</div>
 
-<router-outlet> </router-outlet>
+<router-outlet></router-outlet>
