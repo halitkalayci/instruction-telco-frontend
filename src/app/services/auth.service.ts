@@ -1,4 +1,4 @@
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -7,6 +7,7 @@ import { LocalStorageService } from './local-storage.service';
 import { LoginDto } from '../models/loginDto';
 import { LoginResponseModel } from '../models/loginResponseModel';
 import { ResponseModel } from '../models/responseModel';
+import { TokenUserModel } from '../models/tokenUserModel';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,7 +16,11 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
   private controllerUrl = `${environment.apiUrl}/auth`;
   // private, protected, public(default)
-  onLogin = new Subject<string>();
+  //* Events, bir event'in tetiklendiğini, bir event'in tetiklendiğini dinleyen bir sınıflardır.
+  //* - EventEmitter:  component.html tarafında, @Output() ile kullanılır.
+  //* - Subject: component.ts arası kullanılır.
+  //* - BehaviorSubject: Subject'ın bir türüdür. Subject'ın ilk değerini alır.
+  onLogin = new BehaviorSubject<string>('Hoşgeldiniz!');
 
   constructor(
     private httpClient: HttpClient,

@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'telco-frontend12';
   isLoading: boolean = false;
   today: Date = new Date();
-  overlayTitleText: string = 'Hoşgeldiniz...';
+  overlayTitleText: string = '';
 
   constructor(
     private loadingService: LoadingService,
