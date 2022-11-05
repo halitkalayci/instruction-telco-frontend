@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   //* EventEmitter sadece componentler arası, HTML tarafında iletişim için kullanılır.
   @Output() onLogout = new EventEmitter<void>();
   @Output() onLogoutWithValue = new EventEmitter<string>();
+  // tokenUserModel: TokenUserModel | null = null;
 
   constructor(private authService: AuthService, private router: Router) {}
 

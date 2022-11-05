@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   isLoading: boolean = false;
   today: Date = new Date();
   overlayTitleText: string = '';
+  // tokenUserModel: TokenUserModel | null = null;
 
   constructor(
     private loadingService: LoadingService,
@@ -49,10 +50,6 @@ export class AppComponent implements OnInit {
   }
 
   handleOnLogout() {
-    console.log(
-      '🚀 ~ file: app.component.ts ~ line 53 ~ AppComponent ~ handleOnLogout ~ overlayTitleText',
-      this.overlayTitleText
-    );
     this.overlayTitleText = 'Hoşçakal, tekrar bekleriz...';
   }
   handleOnLogoutWithValue(eventValue: string) {
