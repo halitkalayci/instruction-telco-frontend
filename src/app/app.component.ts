@@ -23,6 +23,13 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.subscribeToLoading();
     this.handleOnLogin();
+    this.setTokenUserModel();
+  }
+
+  setTokenUserModel() {
+    const tokenUserModel = this.authService.tokenUserModel;
+    if (tokenUserModel)
+      this.authService.setTokenUserModelStoreState(tokenUserModel);
   }
 
   sumOfNumbers(a: number, b: number) {
