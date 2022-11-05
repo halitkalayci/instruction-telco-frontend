@@ -25,9 +25,10 @@
           >
         </li>
       </ul>
-      <button *ngIf="isLogin" (click)="logout()" class="btn btn-danger">
-        Logout
-      </button>
+      <div *ngIf="isLogin" class="d-flex align-items-center">
+        <span class="me-3">{{ (tokenUserModel$ | async)!.userName }}</span>
+        <button (click)="logout()" class="btn btn-danger">Logout</button>
+      </div>
     </div>
   </div>
 </nav>
