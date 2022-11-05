@@ -17,6 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FilterServicePipe } from './pipes/filter-service.pipe';
+import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { FilterServicePipe } from './pipes/filter-service.pipe';
     LoginComponent,
     HomepageComponent,
     FilterServicePipe,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
