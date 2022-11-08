@@ -20,6 +20,7 @@
     "@angular/router": "^14.2.0",
     "@auth0/angular-jwt": "^5.1.0",
     "@ngrx/store": "^14.3.2",
+    "@ngrx/store-devtools": "^14.3.2",
     "bootstrap": "^5.2.2",
     "ngx-toastr": "^15.2.1",
     "rxjs": "~7.5.0",

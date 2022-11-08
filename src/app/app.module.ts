@@ -22,6 +22,8 @@ import { SplitPipe } from './pipes/split.pipe';
 import { StoreModule } from '@ngrx/store';
 import { ToastrModule } from 'ngx-toastr';
 import { appReducers } from './store/app.reducer';
+import { CreateCustomerComponent } from './pages/create-customer/create-customer.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { appReducers } from './store/app.reducer';
     FilterServicePipe,
     NavbarComponent,
     OverlayTitleComponent,
+    CreateCustomerComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,9 @@ import { appReducers } from './store/app.reducer';
       },
     }),
     StoreModule.forRoot<AppStoreState>(appReducers),
+    StoreDevtoolsModule.instrument({
+      autoPause: false,
+    }),
   ],
   exports: [],
   providers: [

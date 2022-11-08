@@ -1,0 +1,23 @@
+<div class="container">
+  <form [formGroup]="customerForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name"
+        id="name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="surname" class="form-label">Surname</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="surname"
+        id="surname"
+      />
+    </div>
+    <button class="btn btn-success" (click)="saveState()">Save</button>
+  </form>
+</div>
